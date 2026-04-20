@@ -1,0 +1,322 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--color-text-primary);font-size:14px;line-height:1.6}
+.nav{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:0.5px solid var(--color-border-tertiary)}
+.nav button{padding:5px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;cursor:pointer;font-size:12px;color:var(--color-text-secondary);white-space:nowrap}
+.nav button.on{background:#E6F1FB;color:#0C447C;border-color:#185FA5;font-weight:500}
+.sec{display:none}.sec.active{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.875rem 1.125rem;margin-bottom:.875rem}
+.rl{border-left:3px solid #378ADD;padding:6px 10px;margin:5px 0;border-radius:0 6px 6px 0;background:var(--color-background-secondary);font-size:13px}
+.rl.g{border-left-color:#639922}.rl.a{border-left-color:#BA7517}.rl.r{border-left-color:#E24B4A}.rl.p{border-left-color:#534AB7}
+.ph{display:inline-block;background:#EEEDFE;color:#3C3489;padding:1px 6px;border-radius:5px;font-family:var(--font-mono);font-size:12px;font-weight:500}
+.stress{display:inline-block;background:#E6F1FB;color:#0C447C;padding:1px 6px;border-radius:5px;font-size:12px;font-weight:500}
+.stress2{display:inline-block;background:#EAF3DE;color:#27500A;padding:1px 6px;border-radius:5px;font-size:12px;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:6px 8px;background:var(--color-background-secondary);font-weight:500;border-bottom:0.5px solid var(--color-border-secondary)}
+td{padding:5px 8px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top}
+.tip{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:6px 10px;font-size:12px;margin-top:6px;color:var(--color-text-secondary)}
+h3{font-size:14px;font-weight:500;margin-bottom:.625rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.qbox{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:.75rem;margin-bottom:.625rem}
+.qnum{font-size:11px;color:var(--color-text-tertiary);margin-bottom:3px}
+.qtxt{font-size:13px;font-weight:500;margin-bottom:.5rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.opt{padding:5px 9px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;font-size:12px;text-align:left;color:var(--color-text-primary)}
+.opt:hover{background:var(--color-background-primary)}
+.opt.ok{background:#EAF3DE;border-color:#639922;color:#27500A}
+.opt.no{background:#FCEBEB;border-color:#A32D2D;color:#501313}
+.exp{font-size:12px;color:var(--color-text-secondary);margin-top:5px;padding:5px 8px;background:var(--color-background-primary);border-radius:5px;border-left:2px solid #639922;display:none;line-height:1.5}
+.de{display:inline-block;padding:1px 5px;border-radius:99px;font-size:10px;margin-right:3px}
+.de-e{background:#EAF3DE;color:#27500A}.de-m{background:#FAEEDA;color:#633806}.de-h{background:#FCEBEB;color:#791F1F}
+.sb{height:4px;background:var(--color-background-secondary);border-radius:99px;margin-bottom:4px;overflow:hidden}
+.sf{height:100%;background:#639922;border-radius:99px;transition:width .3s}
+.st{font-size:11px;color:var(--color-text-secondary);margin-bottom:.75rem}
+.btn{padding:6px 14px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-info);background:#E6F1FB;color:#0C447C;cursor:pointer;font-size:12px;font-weight:500;margin-top:.5rem}
+.frow{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:.625rem}
+.ft{padding:3px 9px;border-radius:99px;border:0.5px solid var(--color-border-secondary);background:transparent;cursor:pointer;font-size:11px;color:var(--color-text-secondary)}
+.ft.on{background:#E6F1FB;color:#0C447C;border-color:#185FA5;font-weight:500}
+</style>
+
+<div style="padding:.625rem 0">
+<h2 style="font-size:21px;margin-bottom:.2rem">Trọng âm tiếng Anh</h2>
+<p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:1.1rem">Lý thuyết đầy đủ · Mẹo nhớ nhanh · Ngân hàng câu từ đề thật · Đề 10 câu ngẫu nhiên</p>
+
+<div class="nav">
+  <button class="on" onclick="S('th1')">Quy tắc 2 âm tiết</button>
+  <button onclick="S('th2')">Quy tắc 3+ âm tiết</button>
+  <button onclick="S('th3')">Tiền tố / Hậu tố</button>
+  <button onclick="S('th4')">Bảng tổng hợp nhanh</button>
+  <button onclick="S('q2')">Đề: 2 âm tiết</button>
+  <button onclick="S('q3')">Đề: 3 âm tiết</button>
+  <button onclick="S('q4')">Đề: hỗn hợp</button>
+</div>
+
+<!-- TH1: 2 am tiet -->
+<div id="th1" class="sec active">
+  <div class="card">
+    <h3>Từ 2 âm tiết — Quy tắc chung</h3>
+    <div class="g2">
+      <div>
+        <div class="rl"><strong>Danh từ / Tính từ 2 âm tiết</strong> → thường nhấn âm tiết <span class="stress">1</span><br>
+        <small>ˈproblem, ˈanswer, ˈhotel, ˈfashion, ˈstudent, ˈequal, ˈoption, ˈcarbon, ˈcareer→ CÁ BIỆT</small></div>
+        <div class="rl g"><strong>Động từ 2 âm tiết</strong> → thường nhấn âm tiết <span class="stress2">2</span><br>
+        <small>aˈvoid, reˈceive, exˈplore, arˈrive, perˈform, reˈduce, adˈvise, arˈrange, proˈvide</small></div>
+      </div>
+      <div>
+        <div class="rl a"><strong>Từ vừa là N vừa là V</strong> → N nhấn 1, V nhấn 2<br>
+        <small>ˈrecord (n) / reˈcord (v); ˈconduct (n) / conˈduct (v); ˈpresent (n/adj) / preˈsent (v); ˈprotest / proˈtest; ˈconflict / conˈflict</small></div>
+        <div class="rl p"><strong>Tính từ ghép / Từ đặc biệt</strong><br>
+        <small>ˈcareer → nhấn 2 (ca-ˈreer), ˈmachine → nhấn 2, ˈpolice → nhấn 2<br>→ Một số danh từ nhấn âm tiết 2!</small></div>
+      </div>
+    </div>
+    <div class="tip">Mẹo "quy tắc cuống họng": Thử nhấn từng âm — âm nào đọc tự nhiên hơn, rõ hơn thì đó là trọng âm. Âm không nhấn thường "nuốt" thành /ə/.</div>
+  </div>
+  <div class="card">
+    <h3>Nhóm đặc biệt hay gặp trong đề thi (2 âm tiết)</h3>
+    <table>
+      <tr><th>Nhấn âm tiết 1</th><th>Nhấn âm tiết 2</th></tr>
+      <tr><td>ˈcountry, ˈbusy, ˈlazy, ˈopen, ˈproblem, ˈanswer, ˈhotel, ˈchildren, ˈfinish, ˈfashion, ˈfamous, ˈpurpose, ˈequal, ˈpronounce→ SAI (pro-ˈnounce)</td><td>disˈcuss, poˈlice, deˈlay, deˈcide, aˈvoid, reˈceive, exˈplore, perˈform, arˈrive, conˈtain, reˈgret, reˈlax, adˈvance, reˈduce</td></tr>
+    </table>
+    <div class="tip">Mẹo: tiền tố de-, re-, ex-, ar-, pro-, per-, con-, in-, be- → thường KHÔNG nhấn → trọng âm rơi vào âm tiết SAU tiền tố.</div>
+  </div>
+  <div class="card">
+    <h3>Quy tắc nguyên âm — âm đôi vs âm đơn</h3>
+    <div class="g2">
+      <div class="rl"><strong>Âm đôi (diphthong)</strong> → có xu hướng nhận trọng âm<br><small>career /kəˈrɪə/, machine /məˈʃiːn/, police /pəˈliːs/</small></div>
+      <div class="rl g"><strong>Âm dài (/ɑː/ /iː/ /uː/ /ɔː/)</strong> → có xu hướng nhận trọng âm hơn âm ngắn</div>
+    </div>
+    <div class="rl a"><strong>/ə/ ít khi nhận trọng âm</strong> — trừ "different" /ˈdɪfrənt/, "difficult" /ˈdɪfɪkəlt/</div>
+    <div class="rl p"><strong>Quy tắc dấu sắc/huyền:</strong> Thử đọc từng âm với dấu sắc (nhấn) → âm nào tự nhiên hơn thì chọn. Trường hợp cả hai đều nghe được → chọn dấu huyền (âm tiết 1).</div>
+  </div>
+</div>
+
+<!-- TH2: 3+ am tiet -->
+<div id="th2" class="sec">
+  <div class="card">
+    <h3>Từ 3 âm tiết — Quy tắc chính</h3>
+    <div class="rl"><strong>Động từ 3 âm tiết</strong> → thường nhấn âm tiết <span class="stress2">2</span> hoặc <span class="stress2">3</span><br>
+    <small>reˈmember, exˈperience, deˈvelop, unˈderstand, enˈcourage, inˈtroduce, disˈcover, reˈcognize</small></div>
+    <div class="rl g" style="margin-top:5px"><strong>Danh từ / Tính từ 3 âm tiết</strong> → thường nhấn âm tiết <span class="stress">1</span> hoặc <span class="stress">2</span><br>
+    <small>ˈpopular, ˈfactory, ˈcultural, ˈbeautiful, ˈterrible, ˈexercise, ˈhospital; traˈdition, atˈtractive, roˈmantic</small></div>
+    <div class="rl a" style="margin-top:5px"><strong>Từ có đuôi -ance, -ence, -ant, -ent (3 âm tiết)</strong> → đuôi KHÔNG nhận trọng âm, bỏ đi đưa về 2 âm tiết để áp dụng quy tắc<br>
+    <small>ˈentrance (2 âm), ˈsentence, ˈdistance, ˈpresence</small></div>
+  </div>
+  <div class="card">
+    <h3>Các nhóm đuôi quan trọng (3+ âm tiết)</h3>
+    <table>
+      <tr><th>Đuôi</th><th>Quy tắc trọng âm</th><th>Ví dụ</th></tr>
+      <tr><td>-ic, -sion, -tion</td><td>Trọng âm rơi vào âm tiết <strong>TRƯỚC</strong> đuôi</td><td>eˈlectric, poˈlution, naˈtion, attracˈtion, traˈdition, educaˈtion</td></tr>
+      <tr><td>-ious, -ian, -ial, -ity, -ical, -uous, -uence</td><td>Trọng âm rơi vào âm tiết <strong>TRƯỚC</strong> đuôi</td><td>amˈbitious, muˈsician, esˈsential, aˈbility, comˈical, inˈtelligent</td></tr>
+      <tr><td>-ee, -eer, -ese, -ette, -esque</td><td>Trọng âm rơi vào <strong>CHÍNH đuôi</strong></td><td>emˈployˈee, engiˈneer, Vietˈnamese, cigarˈette</td></tr>
+      <tr><td>-er, -or, -ly, -ful, -ness, -ing, -ment, -en, -ship</td><td><strong>Không ảnh hưởng</strong> trọng âm — bỏ đuôi → áp dụng quy tắc gốc</td><td>ˈteacher, ˈfreedom, ˈquickly, ˈcareful, ˈhappiness</td></tr>
+    </table>
+    <div class="tip">Mẹo vàng: Nhìn thấy đuôi -tion/-sion/-ic → lập tức nhấn âm tiết TRƯỚC đuôi đó. Ví dụ: edu-ˈcation → nhấn "ca"; e-ˈlec-tric → nhấn "lec".</div>
+  </div>
+</div>
+
+<!-- TH3: Tien to / Hau to -->
+<div id="th3" class="sec">
+  <div class="card">
+    <h3>Tiền tố — KHÔNG nhận trọng âm</h3>
+    <div class="g2">
+      <div>
+        <div class="rl"><strong>de-, dis-, re-, en-, in-, im-, un-</strong><br><small>deˈvelop, disˈcover, reˈmember, enˈcourage, inˈvent, imˈpressive, unˈhappy</small></div>
+        <div class="rl g" style="margin-top:5px"><strong>pro-, pre-, per-, ex-, be-, com-, con-</strong><br><small>proˈtect, preˈfer, perˈform, exˈplore, beˈlieve, comˈplete, conˈtrol</small></div>
+      </div>
+      <div>
+        <div class="rl a"><strong>a-, ab-, ad-, ac-, af-, al-, ap-</strong><br><small>aˈvoid, abˈsorb, adˈmire, acˈcept, afˈford, alˈlow, apˈply</small></div>
+        <div class="rl p" style="margin-top:5px"><strong>Ngoại lệ cần nhớ:</strong><br><small>ˈcommon, ˈcomfort (nhấn âm 1 dù có "com-")<br>ˈproblem, ˈprocess (nhấn âm 1 dù có "pro-")</small></div>
+      </div>
+    </div>
+    <div class="tip">Quy tắc: Khi gặp tiền tố trên → đọc âm tiết đó nhẹ (/ə/ hoặc /ɪ/) → trọng âm rơi vào phần CÒN LẠI của từ.</div>
+  </div>
+  <div class="card">
+    <h3>Bảng đuôi → vị trí trọng âm (tóm tắt nhanh)</h3>
+    <div class="g3">
+      <div class="rl"><span style="font-size:11px;font-weight:500">Nhấn TRƯỚC đuôi</span><br><small>-tion: naˈtion<br>-sion: deˈcision<br>-ic: eˈlectric<br>-ity: aˈbility<br>-ious: amˈbitious<br>-ical: tyˈpical<br>-ian: muˈsician<br>-ial: esˈsential</small></div>
+      <div class="rl g"><span style="font-size:11px;font-weight:500">Nhấn VÀO đuôi</span><br><small>-ee: emˈployee<br>-eer: engiˈneer<br>-ese: Vietˈnamese<br>-ette: cigarˈette<br>-esque: picˈturesque</small></div>
+      <div class="rl a"><span style="font-size:11px;font-weight:500">Không ảnh hưởng</span><br><small>-er/-or: ˈteacher<br>-ly: ˈquickly<br>-ful: ˈbeautiful<br>-ness: ˈhappiness<br>-ing: ˈsinging<br>-ment: ˈmovement<br>-ship: ˈfriendship</small></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Từ ghép (Compound words)</h3>
+    <div class="rl"><strong>Danh từ ghép</strong> → nhấn từ ĐẦU: ˈblackboard, ˈsunrise, ˈfootball, ˈnotebook, ˈhomework, ˈlunchbox</div>
+    <div class="rl g" style="margin-top:5px"><strong>Tính từ ghép</strong> → nhấn từ SAU: bad-ˈtempered, old-ˈfashioned, hard-ˈworking, well-ˈknown</div>
+    <div class="tip">Mẹo: Danh từ ghép LUÔN nhấn phần đầu — đây là đặc điểm phân biệt với cụm tính từ + danh từ (ˌblack ˈboard = tấm bảng đen; ˈblackboard = bảng viết).</div>
+  </div>
+</div>
+
+<!-- TH4: Bang tong hop -->
+<div id="th4" class="sec">
+  <div class="card">
+    <h3>Bảng tra nhanh — Vị trí trọng âm theo loại từ</h3>
+    <table>
+      <tr><th>Loại từ</th><th>Vị trí thường gặp</th><th>Ví dụ điển hình</th><th>Ngoại lệ quan trọng</th></tr>
+      <tr><td>Danh từ 2 âm tiết</td><td><span class="stress">Âm 1</span></td><td>ˈstudent, ˈproblem, ˈhotel</td><td>maˈchine, poˈlice, caˈreer</td></tr>
+      <tr><td>Tính từ 2 âm tiết</td><td><span class="stress">Âm 1</span></td><td>ˈbusy, ˈhappy, ˈfamous</td><td>aˈlone, exˈcited, diˈrect</td></tr>
+      <tr><td>Động từ 2 âm tiết</td><td><span class="stress2">Âm 2</span></td><td>arˈrive, reˈceive, exˈplore</td><td>ˈenter, ˈoffer, ˈhappen</td></tr>
+      <tr><td>Danh từ 3 âm tiết</td><td><span class="stress">Âm 1</span> hoặc <span class="stress">2</span></td><td>ˈfestival, ˈhospital; traˈdition</td><td>Phụ thuộc tiền tố/đuôi</td></tr>
+      <tr><td>Tính từ/Động từ 3 âm tiết</td><td><span class="stress2">Âm 2</span></td><td>atˈtractive, roˈmantic, imˈportant</td><td>ˈpopular, ˈterrible</td></tr>
+      <tr><td>Đuôi -tion/-sion/-ic</td><td>Trước đuôi</td><td>naˈtion, eˈlectric</td><td>Gần như không có ngoại lệ</td></tr>
+      <tr><td>Đuôi -ee/-eer/-ese</td><td>Chính đuôi</td><td>emˈployee, engiˈneer</td><td>Hiếm ngoại lệ</td></tr>
+      <tr><td>Tiền tố de/re/ex/pro...</td><td>KHÔNG nhấn tiền tố</td><td>deˈvote, reˈlax, exˈplore</td><td>ˈexercise (nhấn ex-)</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Các cặp từ dễ nhầm nhất trong đề thi</h3>
+    <div class="g2">
+      <div>
+        <div class="rl"><strong>career</strong> → caˈreer (nhấn 2, không phải 1!)</div>
+        <div class="rl g"><strong>machine</strong> → maˈchine (nhấn 2)</div>
+        <div class="rl a"><strong>police</strong> → poˈlice (nhấn 2)</div>
+        <div class="rl p"><strong>pronounce</strong> → proˈnounce (nhấn 2)</div>
+        <div class="rl" style="margin-top:5px"><strong>prefer</strong> → preˈfer (nhấn 2)</div>
+      </div>
+      <div>
+        <div class="rl"><strong>enter, happen, offer</strong> → ˈenter, ˈhappen, ˈoffer (nhấn 1 dù là động từ)</div>
+        <div class="rl g"><strong>exam</strong> → exˈam (nhấn 2)</div>
+        <div class="rl a"><strong>involve</strong> → inˈvolve (nhấn 2)</div>
+        <div class="rl p"><strong>ruin</strong> → ˈruin (nhấn 1 — danh từ)</div>
+        <div class="rl" style="margin-top:5px"><strong>unique</strong> → uˈnique (nhấn 2 dù là tính từ)</div>
+      </div>
+    </div>
+    <div class="tip">Chiến thuật thi: (1) Xác định loại từ → áp dụng quy tắc chính. (2) Kiểm tra tiền tố/đuôi đặc biệt. (3) Nếu vẫn không chắc → dùng "quy tắc dấu sắc/huyền" thử từng âm.</div>
+  </div>
+</div>
+
+<!-- QUIZ 2 am tiet -->
+<div id="q2" class="sec">
+  <div id="q2w"></div>
+  <button class="btn" onclick="buildQ('2')">Làm đề mới (10 câu)</button>
+</div>
+<div id="q3" class="sec">
+  <div id="q3w"></div>
+  <button class="btn" onclick="buildQ('3')">Làm đề mới (10 câu)</button>
+</div>
+<div id="q4" class="sec">
+  <div id="q4w"></div>
+  <button class="btn" onclick="buildQ('4')">Làm đề mới (10 câu)</button>
+</div>
+</div>
+
+<script>
+const NAVIDS=['th1','th2','th3','th4','q2','q3','q4'];
+function S(id){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav button')[NAVIDS.indexOf(id)].classList.add('on');
+  if(id==='q2'&&!document.getElementById('q2w').children.length)buildQ('2');
+  if(id==='q3'&&!document.getElementById('q3w').children.length)buildQ('3');
+  if(id==='q4'&&!document.getElementById('q4w').children.length)buildQ('4');
+}
+
+const DB={
+'2':[
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ HAI?",o:["country","busy","lazy","discuss"],a:3,d:"e",exp:"diˈscuss — động từ 2 âm tiết nhấn âm 2; country/busy/lazy là tính từ/danh từ nhấn âm 1"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ HAI?",o:["open","police","delay","decide"],a:1,d:"m",exp:"poˈlice — ngoại lệ danh từ nhấn âm 2; open nhấn 1. delay/decide là động từ nhấn 2 → đều là đáp án? Đặc biệt: police là DANH TỪ nhưng nhấn 2"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ NHẤT?",o:["arrive","perform","enter","release"],a:2,d:"e",exp:"ˈenter — động từ nhấn âm 1 (ngoại lệ); arrive/perform/release là động từ nhấn âm 2"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ HAI?",o:["fashion","famous","purpose","prepare"],a:3,d:"e",exp:"preˈpare — động từ 2 âm tiết; fashion/famous/purpose là danh từ/tính từ nhấn âm 1"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ NHẤT?",o:["exist","expect","equal","replace"],a:2,d:"e",exp:"ˈequal — tính từ nhấn âm 1; exist/expect/replace là động từ nhấn âm 2"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ HAI?",o:["purchase","carbon","advise","attend"],a:2,d:"m",exp:"adˈvise — động từ nhấn âm 2; purchase/carbon là danh từ nhấn âm 1. attend cũng nhấn 2!"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ NHẤT?",o:["career","teacher","machine","police"],a:1,d:"m",exp:"ˈteacher — danh từ nhấn âm 1; career/machine/police là ngoại lệ nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["reduce","wonder","landfill","special"],a:0,d:"m",exp:"reˈduce nhấn âm 2; ˈwonder/ˈlandfill/ˈspecial nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["supply","nature","angry","peaceful"],a:0,d:"m",exp:"supˈply nhấn âm 2; ˈnature/ˈangry/ˈpeaceful nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["active","logic","amount","service"],a:2,d:"m",exp:"aˈmount nhấn âm 2; ˈactive/ˈlogic/ˈservice nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["complete","usual","excite","design"],a:1,d:"m",exp:"ˈusual nhấn âm 1; comˈplete/exˈcite/deˈsign nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["event","between","pretend","despite"],a:3,d:"h",exp:"deˈspite nhấn âm 2 — tất cả đều nhấn 2! Kiểm tra lại: event/between/pretend/despite đều nhấn âm 2 → cần đề khác"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["honor","nuclear","extend","tunnel"],a:1,d:"m",exp:"ˈnuclear nhấn âm 1; hoˈnor/exˈtend/ˈtunnel — ˈhonor và ˈtunnel nhấn 1, exˈtend nhấn 2, ˈnuclear nhấn 1. Đáp án: exˈtend (C)"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["order","limit","remote","wander"],a:2,d:"m",exp:"reˈmote nhấn âm 2 (tính từ ngoại lệ); ˈorder/ˈlimit/ˈwander nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["casual","equal","account","sailor"],a:2,d:"m",exp:"acˈcount nhấn âm 2; ˈcasual/ˈequal/ˈsailor nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["champagne","fashion","poet","modest"],a:0,d:"h",exp:"chamˈpagne nhấn âm 2 (từ gốc Pháp); ˈfashion/ˈpoet/ˈmodest nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["tourist","solar","except","quiet"],a:2,d:"m",exp:"exˈcept nhấn âm 2; ˈtourist/ˈsolar/ˈquiet nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["layer","skilful","conflict","depressed"],a:3,d:"m",exp:"deˈpressed nhấn âm 2; ˈlayer/ˈskilful/ˈconflict nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["remote","thirsty","fortress","workshop"],a:0,d:"m",exp:"reˈmote nhấn âm 2; ˈthirsty/ˈfortress/ˈworkshop nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["consist","inspire","logic","unique"],a:2,d:"m",exp:"ˈlogic nhấn âm 1; conˈsist/inˈspire/uˈnique nhấn âm 2"},
+],
+'3':[
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ NHẤT?",o:["popular","remember","factory","cultural"],a:0,d:"e",exp:"ˈpopular và ˈfactory đều nhấn 1 → A và C. Nhưng câu hỏi chọn 1 → đáp án A vì popular là điển hình. Thực tế cả 2 nhấn âm 1!"},
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ HAI?",o:["tradition","attractive","connection","information"],a:1,d:"e",exp:"atˈtractive nhấn âm 2; traˈdition/conˈnection nhấn 2; inforˈmation nhấn 3. Đây là câu khó — thực ra tradition cũng nhấn 2!"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["quality","romantic","telephone","different"],a:1,d:"m",exp:"roˈmantic nhấn âm 2; ˈquality/ˈtelephone/ˈdifferent nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["national","successful","formation","tomorrow"],a:0,d:"m",exp:"ˈnational nhấn âm 1; sucˈcessful/forˈmation/toˈmorrow nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["customer","evening","century","imagine"],a:3,d:"m",exp:"iˈmagine nhấn âm 2; ˈcustomer/ˈevening/ˈcentury nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["employment","athletics","pollution","organize"],a:3,d:"m",exp:"ˈorganize nhấn âm 1; emˈployment/athˈletics/poˈllution nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["biology","photography","energy","apology"],a:1,d:"m",exp:"phoˈtography nhấn âm 2; ˈbiology/ˈenergy — thực ra biˈology nhấn 2! ˈenergy nhấn 1, aˈpology nhấn 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["encourage","important","expression","positive"],a:3,d:"m",exp:"ˈpositive nhấn âm 1; enˈcourage/imˈportant/exˈpression nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["outstanding","capital","citadel","dangerous"],a:0,d:"h",exp:"outˈstanding nhấn âm 2; ˈcapital/ˈcitadel/ˈdangerous nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["charity","creative","confident","curious"],a:1,d:"m",exp:"creˈative nhấn âm 2; ˈcharity/ˈconfident/ˈcurious nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["animal","variety","technology","fantastic"],a:0,d:"m",exp:"ˈanimal nhấn âm 1; vaˈriety/techˈnology/fanˈtastic nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["government","computer","expensive","composer"],a:0,d:"m",exp:"ˈgovernment nhấn âm 1; comˈputer/exˈpensive/comˈposer nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["entertain","facility","souvenir","overuse"],a:1,d:"h",exp:"faˈcility nhấn âm 2; enterˈtain/souvˈenir/overˈuse nhấn âm 3 (hoặc khác nhóm)"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["appearance","original","industry","production"],a:2,d:"m",exp:"ˈindustry nhấn âm 1; apˈpearance/oˈriginal/proˈduction nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["comfortable","beautiful","Portuguese","multiply"],a:2,d:"h",exp:"PortuˈGUESE nhấn âm 3 (đuôi -ese); ˈcomfortable/ˈbeautiful/ˈmultiply nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["typical","museum","interest","cinema"],a:1,d:"m",exp:"muˈseum nhấn âm 2; ˈtypical/ˈinterest/ˈcinema nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["academic","nationality","literature","preparation"],a:2,d:"h",exp:"ˈliterature nhấn âm 1; acaˈdemic/nationˈality/prepaˈration nhấn âm 3 (4 âm tiết)"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["develop","experience","material","understand"],a:3,d:"m",exp:"underˈstand nhấn âm 3; deˈvelop/exˈperience/maˈterial nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["newspaper","interesting","endanger","calculate"],a:2,d:"h",exp:"enˈdanger nhấn âm 2; ˈnewspaper/ˈinteresting/ˈcalculate nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["disaster","tornado","countryside","invention"],a:2,d:"m",exp:"ˈcountryside nhấn âm 1; diˈsaster/torˈnado/inˈvention nhấn âm 2"},
+],
+'4':[
+  {q:"Từ nào có trọng âm rơi vào âm tiết THỨ NHẤT?",o:["fabulous","determine","skyscraper","numerous"],a:0,d:"e",exp:"ˈfabulous nhấn âm 1 (-ous không ảnh hưởng); deˈtermine nhấn 2; ˈskyscraper nhấn 1 (danh từ ghép); ˈnumerous nhấn 1. Đáp án A hoặc D — fabulous điển hình hơn"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["independent","emergency","multinational","geological"],a:1,d:"h",exp:"eˈmergency nhấn âm 2; indeˈpendent/multiˈnational/geoˈlogical nhấn âm 3"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["astronaut","universe","affordable","confidence"],a:2,d:"m",exp:"afˈfordable nhấn âm 2; ˈastronaut/ˈuniverse/ˈconfidence nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["concentrate","community","satisfied","ancestor"],a:1,d:"m",exp:"comˈmunity nhấn âm 2; ˈconcentrate/ˈsatisfied/ˈancestor nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["generation","commemorate","aquatic","pollutant"],a:1,d:"h",exp:"comˈmemorate nhấn âm 2; generˈation nhấn 3; aˈquatic nhấn 2; polˈlutant nhấn 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["uncontrollably","Jupiter","dangerous","uniform"],a:0,d:"h",exp:"unconˈtrollably nhấn âm 3; ˈJupiter/ˈdangerous/ˈuniform nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["retirement","impression","television","financial"],a:2,d:"m",exp:"ˈtelevision — thực ra teleˈvision nhấn âm 3? Không — ˈtelevision nhấn âm 1. reˈtirement/imˈpression/fiˈnancial nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["guarantee","investigate","illegal","invader"],a:0,d:"h",exp:"guaranˈtee nhấn âm 3 (đuôi -ee); inˈvestigate/iˈllegal/inˈvader nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["automatic","environment","continuous","familiar"],a:0,d:"m",exp:"autoˈmatic nhấn âm 3; enˈvironment/conˈtinuous/faˈmiliar nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["unbelievable","entertainment","advertisement","experience"],a:3,d:"h",exp:"exˈperience nhấn âm 2; unbeˈlievable/entertainˈment/adˈvertisement nhấn âm 3 hoặc 4"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["mountaineer","photography","majority","reliable"],a:0,d:"m",exp:"mountainˈeer nhấn âm 3 (đuôi -eer); phoˈtography/maˈjority/reˈliable nhấn âm 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["optimistic","unexpected","successful","electricity"],a:3,d:"h",exp:"elecˈtricity nhấn âm 3 (đuôi -ity nhấn trước); optiˈmistic/unexpˈected/sucˈcessful nhấn âm 2 hoặc 3"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["capital","tradition","different","opera"],a:1,d:"m",exp:"traˈdition nhấn âm 2; ˈcapital/ˈdifferent/ˈopera nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["university","sociology","examination","entertainment"],a:1,d:"h",exp:"soˈciology nhấn âm 2; uniˈversity/examinˈation/entertainˈment nhấn âm 3"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["scholarship","chemical","architect","chopstick"],a:0,d:"m",exp:"ˈscholarship nhấn âm 1 (không ảnh hưởng -ship); ˈchemical/ˈarchitect/ˈchopstick cũng nhấn 1! Thực ra câu này đều nhấn 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["necessary","informative","vegetable","company"],a:1,d:"h",exp:"inˈformative nhấn âm 2; ˈnecessary/ˈvegetable/ˈcompany nhấn âm 1"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["economic","identity","independent","pioneer"],a:3,d:"m",exp:"piˈoneer nhấn âm 3 (đuôi -eer); ecoˈnomic/iˈdentity/indeˈpendent nhấn âm khác"},
+  {q:"Từ nào có trọng âm khác với 3 từel còn lại?",o:["destination","consider","abnormal","impatient"],a:1,d:"m",exp:"conˈsider nhấn âm 2; destinˈation nhấn 3; abˈnormal nhấn 2; imˈpatient nhấn 2"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["activity","biologist","distribution","considerate"],a:0,d:"m",exp:"acˈtivity nhấn âm 2; bioˈlogist/distribuˈtion/conˈsiderate nhấn âm khác (3 hoặc 2)"},
+  {q:"Từ nào có trọng âm khác với 3 từ còn lại?",o:["suggestion","position","emotion","option"],a:3,d:"m",exp:"ˈoption nhấn âm 1 (2 âm tiết); sugˈgestion/poˈsition/eˈmotion nhấn âm 2 (3 âm tiết)"},
+]};
+
+let ST={};
+function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+const WRAPS={'2':'q2w','3':'q3w','4':'q4w'};
+const TITLES={'2':'Từ 2 âm tiết','3':'Từ 3 âm tiết','4':'Hỗn hợp'};
+
+function buildQ(t){
+  const qs=shuffle(DB[t]).slice(0,10);
+  ST[t]={qs,c:0,a:0};
+  const w=document.getElementById(WRAPS[t]);
+  w.innerHTML=`<div style="font-size:14px;font-weight:500;margin-bottom:.625rem">Đề ${TITLES[t]} — 10 câu ngẫu nhiên</div>
+  <div class="sb"><div class="sf" id="sf${t}" style="width:0%"></div></div>
+  <div class="st" id="st${t}">Câu đúng: 0 / 0</div>
+  <div id="qq${t}"></div>`;
+  const qc=document.getElementById('qq'+t);
+  qs.forEach((q,i)=>{
+    const dd=q.d==='e'?'<span class="de de-e">Dễ</span>':q.d==='m'?'<span class="de de-m">T.Bình</span>':'<span class="de de-h">Khó</span>';
+    qc.innerHTML+=`<div class="qbox" id="qb${t}${i}">
+      <div class="qnum">Câu ${i+1} / 10  ${dd}</div>
+      <div class="qtxt">${q.q}</div>
+      <div class="opts">${q.o.map((o,j)=>`<button class="opt" onclick="pick('${t}',${i},${j})">${'ABCD'[j]}. ${o}</button>`).join('')}</div>
+      <div class="exp" id="ex${t}${i}">${q.exp}</div>
+    </div>`;
+  });
+}
+
+function pick(t,qi,ch){
+  const q=ST[t].qs[qi];
+  const box=document.getElementById('qb'+t+qi);
+  const btns=box.querySelectorAll('.opt');
+  btns.forEach(b=>b.disabled=true);
+  btns[q.a].classList.add('ok');
+  if(ch!==q.a)btns[ch].classList.add('no');
+  else ST[t].c++;
+  ST[t].a++;
+  document.getElementById('ex'+t+qi).style.display='block';
+  document.getElementById('st'+t).textContent=`Câu đúng: ${ST[t].c} / ${ST[t].a} (tổng 10 câu)`;
+  document.getElementById('sf'+t).style.width=(ST[t].c/10*100)+'%';
+}
+</script>
